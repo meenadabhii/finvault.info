@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finvault.info</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0f2fe 100%);
+        }
+    </style>
+</head>
+<body class="gradient-bg font-sans flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden animate__animated animate__fadeIn">
+        <!-- Header -->
+        <div class="bg-slate-500 py-4 px-6">
+            <h1 class="text-2xl font-bold text-white text-center">Finance Insights</h1>
+            <p class="text-teal-100 text-center mt-1">Your gateway to financial wisdom</p>
+        </div>
+        
+        <!-- Age Verification -->
+        <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">Age Verification</h2>
+            <p class="text-gray-600 mb-6 text-center">This content may not be suitable for all audiences.</p>
+            
+            <div class="flex flex-col space-y-4">
+                <button id="over18" class="bg-slate-500 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">
+                    I'm 18 or Older
+                </button>
+                <button id="under18" class="bg-rose-400 hover:bg-rose-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 shadow-md">
+                    I'm Under 18
+                </button>
+            </div>
+        </div>
+        
+        <!-- Ad Space -->
+        <!-- <div class="bg-slate-200 p-4 text-center border-t border-slate-300">
+            <p class="text-slate-500 text-sm">Advertisement Space</p>
+            <div class="h-20 bg-slate-300 rounded flex items-center justify-center mt-2">
+                <span class="text-slate-500">Ad Banner</span>
+            </div>
+        </div> -->
+        
+        <!-- Finance Content - Expanded 3x -->
+        <div class="p-6 animate__animated animate__fadeInUp animate__delay-0.5s">
+            <h2 class="text-xl font-semibold text-gray-800 mb-3">Mastering Personal Finance</h2>
+            <p class="text-gray-600 mb-4">Financial literacy is the foundation of economic freedom. This guide covers essential concepts to help you take control of your financial future.</p>
+            
+            <div class="space-y-6">
+                <!-- Section 1 -->
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+                    <h3 class="font-medium text-amber-800">Budgeting Fundamentals</h3>
+                    <p class="text-amber-700 text-sm mt-2">Track every dollar with the 50/30/20 rule: 50% needs, 30% wants, 20% savings. Apps like Mint or YNAB can automate this process.</p>
+                    <ul class="list-disc list-inside text-amber-700 text-xs mt-2 space-y-1">
+                        <li>Needs: Housing, utilities, groceries</li>
+                        <li>Wants: Dining out, entertainment</li>
+                        <li>Savings: Emergency fund, investments</li>
+                    </ul>
+                </div>
+                
+                <!-- Section 2 -->
+                <div class="bg-sky-50 p-4 rounded-lg border-l-4 border-sky-400">
+                    <h3 class="font-medium text-sky-800">Debt Management Strategies</h3>
+                    <p class="text-sky-700 text-sm mt-2">Prioritize high-interest debt first (avalanche method) or smallest balances first (snowball method) for psychological wins.</p>
+                    <div class="mt-2 flex justify-between text-xs">
+                        <span class="bg-sky-100 text-sky-800 px-2 py-1 rounded">Avalanche: Save on interest</span>
+                        <span class="bg-sky-100 text-sky-800 px-2 py-1 rounded">Snowball: Quick wins</span>
+                    </div>
+                </div>
+                
+                <!-- Section 3 -->
+                <div class="bg-rose-50 p-4 rounded-lg border-l-4 border-rose-400">
+                    <h3 class="font-medium text-rose-800">Emergency Fund Essentials</h3>
+                    <p class="text-rose-700 text-sm mt-2">Aim for 3-6 months of living expenses in a high-yield savings account. Start small with $1,000 if you're beginning.</p>
+                    <div class="w-full bg-rose-100 rounded-full h-2.5 mt-2">
+                        <div class="bg-rose-500 h-2.5 rounded-full" style="width: 45%"></div>
+                    </div>
+                    <p class="text-rose-700 text-xs mt-1 text-right">45% of Americans can't cover a $400 emergency</p>
+                </div>
+                
+                <!-- Section 4 -->
+                <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-400">
+                    <h3 class="font-medium text-indigo-800">Credit Score Breakdown</h3>
+                    <p class="text-indigo-700 text-sm mt-2">Your 300-850 score depends on payment history (35%), amounts owed (30%), credit history (15%), new credit (10%), and credit mix (10%).</p>
+                    <div class="flex justify-between text-indigo-700 text-xs mt-2">
+                        <span>Poor: 300-579</span>
+                        <span>Fair: 580-669</span>
+                        <span>Good: 670-739</span>
+                        <span>Excellent: 740-850</span>
+                    </div>
+                </div>
+                
+                <!-- Section 5 -->
+                <div class="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-400">
+                    <h3 class="font-medium text-teal-800">Retirement Planning</h3>
+                    <p class="text-teal-700 text-sm mt-2">The Rule of 72: Divide 72 by your expected return to find how long investments take to double. At 7% return, money doubles every ~10 years.</p>
+                    <div class="flex items-center mt-2">
+                        <div class="w-8 h-8 bg-teal-200 rounded-full flex items-center justify-center mr-2">
+                            <span class="text-teal-800 text-xs">72</span>
+                        </div>
+                        <span class="text-teal-700 text-xs">÷ Return Rate = Years to Double</span>
+                    </div>
+                </div>
+                
+                <!-- Section 6 -->
+                <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-slate-400">
+                    <h3 class="font-medium text-slate-800">Tax Optimization</h3>
+                    <p class="text-slate-700 text-sm mt-2">Maximize tax-advantaged accounts: 401(k), IRA, HSA. Understand marginal vs effective tax rates to better plan deductions.</p>
+                    <div class="flex justify-between text-slate-700 text-xs mt-2">
+                        <span class="bg-slate-100 px-2 py-1 rounded">401(k): $22,500 limit</span>
+                        <span class="bg-slate-100 px-2 py-1 rounded">IRA: $6,500 limit</span>
+                        <span class="bg-slate-100 px-2 py-1 rounded">HSA: $3,850 limit</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Element -->
+            <div class="mt-6 bg-gradient-to-r from-teal-100 to-sky-100 p-4 rounded-lg text-center">
+                <h3 class="font-medium text-teal-800 mb-2">Financial Health Check</h3>
+                <button class="bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300">
+                    Take 2-Minute Assessment
+                </button>
+            </div>
+            
+            <div class="flex justify-between text-xs text-slate-500 mt-6">
+                <span>Financial Education</span>
+                <span>Start Today</span>
+            </div>
+        </div>
+        
+        <!-- Footer Ad Space -->
+        <!-- <div class="bg-slate-200 p-4 text-center border-t border-slate-300">
+            <p class="text-slate-500 text-sm">Advertisement Space</p>
+            <div class="h-20 bg-slate-300 rounded flex items-center justify-center mt-2">
+                <span class="text-slate-500">Ad Banner</span>
+            </div>
+        </div> -->
+    </div>
+
+    <script>
+        document.getElementById('over18').addEventListener('click', function() {
+            window.location.href = 'page2.html';
+        });
+        
+        document.getElementById('under18').addEventListener('click', function() {
+            alert('This content is for adults only. Redirecting to educational resources.');
+            window.location.href = 'page2.html';
+        });
+    </script>
+</body>
+</html>
