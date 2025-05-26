@@ -1,27 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>finvault.info</title>
     <link href="./output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+    (function () {
+      // Initialize googletag if not already defined
+      window.googletag = window.googletag || { cmd: [] };
+
+      // Ad slot variables
+      let adSlot1, adSlot2, anchorSlot;
+      const refreshInterval = 30000; // 30 seconds - more user-friendly refresh rate
+      let refreshTimer;
+
+      // Function to set up ads
+      function setupAds() {
+        googletag.cmd.push(function () {
+          // Setup PubAds
+          const pubads = googletag.pubads();
+          pubads.enableSingleRequest();
+          pubads.setCentering(true);
+
+          // Apply geotargeting if available
+          if (window.geoTarget) {
+            pubads.setLocation(window.geoTarget);
+          }
+
+          // Define Ad Slots with consistent IDs
+          adSlot1 = googletag.defineSlot(
+            '/21952429235/sahajanand_finvault.info_native',
+            [[300, 250], [320, 480], [250, 250], [300, 100], 'fluid', [336, 280]],
+            'ad-slot-1'
+          ).addService(pubads);
+
+          adSlot2 = googletag.defineSlot(
+            '/21952429235/sahajanand_finvault.info_native',
+            [[300, 250], [320, 480], [250, 250], [300, 100], 'fluid', [336, 280]],
+            'ad-slot-2'
+          ).addService(pubads);
+
+          // Define anchor ad with proper ID
+          anchorSlot = googletag.defineOutOfPageSlot(
+            '/21952429235/sahajanand_finvault.info_native',
+            googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
+          );
+
+          if (anchorSlot) {
+            anchorSlot.addService(pubads);
+            // Use the correct ID for the anchor ad
+            anchorSlot.setElementId('ad-anchor-slot');
+          }
+
+          // Event listeners for ad loading
+          pubads.addEventListener('slotRenderEnded', function (event) {
+            // Handle ad render events if needed
+            const slotId = event.slot.getSlotElementId();
+            const isEmpty = event.isEmpty;
+
+            // Example: hide containers with no ads
+            if (isEmpty && document.getElementById(slotId)) {
+              document.getElementById(slotId).style.display = 'none';
+            }
+          });
+
+          // Enable services
+          googletag.enableServices();
+
+          // Display ads
+          try {
+            if (document.getElementById('ad-slot-1')) {
+              googletag.display('ad-slot-1');
+            }
+            if (document.getElementById('ad-slot-2')) {
+              googletag.display('ad-slot-2');
+            }
+            if (document.getElementById('ad-anchor-slot')) {
+              googletag.display('ad-anchor-slot');
+            }
+          } catch (error) {
+            console.log('Error displaying ads:', error);
+          }
+
+          // Set up periodic refresh with error handling
+          setupAdRefresh();
+        });
+      }
+
+      // Function to handle ad refresh
+      function setupAdRefresh() {
+        if (refreshTimer) {
+          clearInterval(refreshTimer);
+        }
+
+        refreshTimer = setInterval(function () {
+          try {
+            // Only refresh if slots exist and are defined
+            const slotsToRefresh = [];
+            if (adSlot1) slotsToRefresh.push(adSlot1);
+            if (adSlot2) slotsToRefresh.push(adSlot2);
+
+            if (slotsToRefresh.length > 0) {
+              googletag.cmd.push(function () {
+                googletag.pubads().refresh(slotsToRefresh);
+              });
+            }
+          } catch (error) {
+            console.log('Error refreshing ads:', error);
+            clearInterval(refreshTimer); // Stop trying on persistent errors
+          }
+        }, refreshInterval);
+      }
+
+      // Check for ad blockers (simple detection)
+      function checkAdBlocker() {
+        const testAd = document.createElement('div');
+        testAd.innerHTML = '&nbsp;';
+        testAd.className = 'adsbox';
+        document.body.appendChild(testAd);
+
+        setTimeout(function () {
+          if (testAd.offsetHeight === 0) {
+            console.log('Ad blocker detected');
+            // You can show a message to users or implement fallback content
+          }
+          document.body.removeChild(testAd);
+        }, 100);
+      }
+
+      // Initialize ads when DOM is ready
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setupAds();
+        checkAdBlocker();
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          setupAds();
+          checkAdBlocker();
+        });
+      }
+
+
+      // Clean up on page unload
+      window.addEventListener('beforeunload', function () {
+        if (refreshTimer) {
+          clearInterval(refreshTimer);
+        }
+      });
+    })();
+
+  </script>
 </head>
+
 <body class="bg-slate-50 font-sans">
     <!-- Navigation -->
     <nav class="bg-slate-900 text-amber-50 shadow-lg">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-4">
-                    <a href="index.html" class="text-2xl font-bold text-amber-400 hover:text-amber-300 transition duration-300">finvault.info</a>
+                    <a href="index.html"
+                        class="text-2xl font-bold text-amber-400 hover:text-amber-300 transition duration-300">finvault.info</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-amber-400 font-medium hover:text-amber-300 transition duration-300">Home</a>
-                    <a href="investing.html" class="text-amber-50 hover:text-amber-300 transition duration-300">Investing</a>
-                    <a href="budgeting.html" class="text-amber-50 hover:text-amber-300 transition duration-300">Budgeting</a>
+                    <a href="index.html"
+                        class="text-amber-400 font-medium hover:text-amber-300 transition duration-300">Home</a>
+                    <a href="investing.html"
+                        class="text-amber-50 hover:text-amber-300 transition duration-300">Investing</a>
+                    <a href="budgeting.html"
+                        class="text-amber-50 hover:text-amber-300 transition duration-300">Budgeting</a>
                     <div class="relative group">
                         <button class="text-amber-50 hover:text-amber-300 transition duration-300">Resources</button>
-                        <div class="absolute hidden group-hover:block bg-slate-800 mt-2 py-2 w-48 rounded shadow-xl z-10">
+                        <div
+                            class="absolute hidden group-hover:block bg-slate-800 mt-2 py-2 w-48 rounded shadow-xl z-10">
                             <a href="#" class="block px-4 py-2 hover:bg-slate-700">Market Trends</a>
                             <a href="#" class="block px-4 py-2 hover:bg-slate-700">Financial Tools</a>
                             <a href="#" class="block px-4 py-2 hover:bg-slate-700">Glossary</a>
@@ -31,7 +185,8 @@
                 <div class="md:hidden">
                     <button class="mobile-menu-button p-2 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
@@ -53,25 +208,28 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 animate__animated animate__fadeInLeft">
                     <h1 class="text-4xl md:text-5xl font-bold mb-4">Master Your Financial Future</h1>
-                    <p class="text-xl mb-8">Expert insights to help you navigate the complex world of personal finance and investing.</p>
+                    <p class="text-xl mb-8">Expert insights to help you navigate the complex world of personal finance
+                        and investing.</p>
                     <div class="flex space-x-4">
-                        <a href="investing.html" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">Start Investing</a>
-                        <a href="budgeting.html" class="bg-transparent hover:bg-slate-600 text-amber-50 font-bold py-3 px-6 border border-amber-500 rounded-lg transition duration-300">Budgeting Tips</a>
+                        <a href="investing.html"
+                            class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">Start
+                            Investing</a>
+                        <a href="budgeting.html"
+                            class="bg-transparent hover:bg-slate-600 text-amber-50 font-bold py-3 px-6 border border-amber-500 rounded-lg transition duration-300">Budgeting
+                            Tips</a>
                     </div>
                 </div>
                 <div class="md:w-1/2 animate__animated animate__fadeInRight">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Financial growth chart" class="rounded-lg shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Financial growth chart" class="rounded-lg shadow-2xl">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advertisement Banner -->
-    <!-- <div class="bg-slate-200 py-4 px-4 text-center">
-        <div class="container mx-auto border-2 border-dashed border-slate-400 rounded-lg py-8">
-            <p class="text-slate-600">Advertisement Space</p>
-        </div>
-    </div> -->
+   <div id="banner-ad" class="ads-box">
+      <div id="ad-slot-1" class="ad-container"></div>
+    </div>
 
     <!-- Featured Articles -->
     <section class="py-16 bg-slate-50">
@@ -79,56 +237,65 @@
             <h2 class="text-3xl font-bold text-center mb-12 text-slate-800">Latest Financial Insights</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Article 1 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-500 transform hover:-translate-y-2">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Stock market" class="w-full h-48 object-cover">
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Stock market" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center mb-2">
                             <span class="bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded">Investing</span>
                             <span class="text-slate-500 text-sm ml-2">May 15, 2023</span>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-slate-800">Emerging Market Trends for 2023</h3>
-                        <p class="text-slate-600 mb-4">Discover the sectors poised for growth in the current economic climate and how to position your portfolio.</p>
-                        <a href="#" class="text-amber-600 font-medium hover:text-amber-700 transition duration-300">Read More →</a>
+                        <p class="text-slate-600 mb-4">Discover the sectors poised for growth in the current economic
+                            climate and how to position your portfolio.</p>
+                        <a href="#" class="text-amber-600 font-medium hover:text-amber-700 transition duration-300">Read
+                            More →</a>
                     </div>
                 </div>
-                
+
                 <!-- Article 2 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-500 transform hover:-translate-y-2">
-                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Budget planning" class="w-full h-48 object-cover">
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Budget planning" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center mb-2">
                             <span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded">Budgeting</span>
                             <span class="text-slate-500 text-sm ml-2">May 10, 2023</span>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-slate-800">The 50/30/20 Rule Revisited</h3>
-                        <p class="text-slate-600 mb-4">How this classic budgeting principle adapts to modern financial challenges and inflation concerns.</p>
-                        <a href="#" class="text-amber-600 font-medium hover:text-amber-700 transition duration-300">Read More →</a>
+                        <p class="text-slate-600 mb-4">How this classic budgeting principle adapts to modern financial
+                            challenges and inflation concerns.</p>
+                        <a href="#" class="text-amber-600 font-medium hover:text-amber-700 transition duration-300">Read
+                            More →</a>
                     </div>
                 </div>
-                
+
                 <!-- Article 3 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-500 transform hover:-translate-y-2">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Retirement planning" class="w-full h-48 object-cover">
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-500 transform hover:-translate-y-2">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        alt="Retirement planning" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center mb-2">
                             <span class="bg-slate-100 text-slate-800 text-xs px-2 py-1 rounded">Retirement</span>
                             <span class="text-slate-500 text-sm ml-2">May 5, 2023</span>
                         </div>
                         <h3 class="text-xl font-bold mb-2 text-slate-800">Rethinking Retirement in Uncertain Times</h3>
-                        <p class="text-slate-600 mb-4">Strategies to protect your nest egg against market volatility and changing economic conditions.</p>
-                        <a href="#" class="text-amber-600 font-medium hover:text-amber-700 transition duration-300">Read More →</a>
+                        <p class="text-slate-600 mb-4">Strategies to protect your nest egg against market volatility and
+                            changing economic conditions.</p>
+                        <a href="#" class="text-amber-600 font-medium hover:text-amber-700 transition duration-300">Read
+                            More →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advertisement Banner -->
-    <!-- <div class="bg-slate-200 py-4 px-4 text-center">
-        <div class="container mx-auto border-2 border-dashed border-slate-400 rounded-lg py-8">
-            <p class="text-slate-600">Advertisement Space</p>
-        </div>
-    </div> -->
+  <div id="banner-ad" class="ads-box">
+      <div id="ad-slot-2" class="ad-container"></div>
+    </div>
 
     <!-- Financial Principles Section -->
     <section class="py-16 bg-slate-100">
@@ -136,47 +303,67 @@
             <h2 class="text-3xl font-bold text-center mb-12 text-slate-800">Core Financial Principles</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Principle 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-amber-50 transition duration-300">
-                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-amber-50 transition duration-300">
+                    <div
+                        class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-2 text-slate-800">Compound Growth</h3>
-                    <p class="text-slate-600">Harness the power of time and reinvestment to exponentially grow your wealth.</p>
+                    <p class="text-slate-600">Harness the power of time and reinvestment to exponentially grow your
+                        wealth.</p>
                 </div>
-                
+
                 <!-- Principle 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-amber-50 transition duration-300">
-                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-200 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-amber-50 transition duration-300">
+                    <div
+                        class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-teal-200 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-2 text-slate-800">Diversification</h3>
-                    <p class="text-slate-600">Spread risk across different assets to protect against market volatility.</p>
+                    <p class="text-slate-600">Spread risk across different assets to protect against market volatility.
+                    </p>
                 </div>
-                
+
                 <!-- Principle 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-amber-50 transition duration-300">
-                    <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-slate-200 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-amber-50 transition duration-300">
+                    <div
+                        class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-slate-200 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-2 text-slate-800">Long-Term Focus</h3>
-                    <p class="text-slate-600">Avoid short-term market noise and maintain perspective on your financial goals.</p>
+                    <p class="text-slate-600">Avoid short-term market noise and maintain perspective on your financial
+                        goals.</p>
                 </div>
-                
+
                 <!-- Principle 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-amber-50 transition duration-300">
-                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <div
+                    class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-amber-50 transition duration-300">
+                    <div
+                        class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-2 text-slate-800">Risk Management</h3>
-                    <p class="text-slate-600">Understand your risk tolerance and implement strategies to protect your assets.</p>
+                    <p class="text-slate-600">Understand your risk tolerance and implement strategies to protect your
+                        assets.</p>
                 </div>
             </div>
         </div>
@@ -186,10 +373,13 @@
     <section class="py-16 bg-gradient-to-r from-slate-800 to-slate-700 text-amber-50">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-4">Stay Informed</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for weekly financial insights and market updates.</p>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for weekly financial insights and
+                market updates.</p>
             <div class="max-w-md mx-auto flex">
-                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-slate-900">
-                <button class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-3 rounded-r-lg transition duration-300">Subscribe</button>
+                <input type="email" placeholder="Your email address"
+                    class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-slate-900">
+                <button
+                    class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-3 rounded-r-lg transition duration-300">Subscribe</button>
             </div>
         </div>
     </section>
@@ -200,21 +390,28 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4 text-amber-400">GlobalFinance</h3>
-                    <p class="mb-4">Providing trusted financial insights to help you make informed decisions about your money.</p>
+                    <p class="mb-4">Providing trusted financial insights to help you make informed decisions about your
+                        money.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-amber-50 hover:text-amber-300 transition duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
                             </svg>
                         </a>
                         <a href="#" class="text-amber-50 hover:text-amber-300 transition duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
                             </svg>
                         </a>
                         <a href="#" class="text-amber-50 hover:text-amber-300 transition duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                                </path>
                             </svg>
                         </a>
                     </div>
@@ -223,8 +420,10 @@
                     <h4 class="text-lg font-semibold mb-4 text-amber-400">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="index.html" class="hover:text-amber-300 transition duration-300">Home</a></li>
-                        <li><a href="investing.html" class="hover:text-amber-300 transition duration-300">Investing</a></li>
-                        <li><a href="budgeting.html" class="hover:text-amber-300 transition duration-300">Budgeting</a></li>
+                        <li><a href="investing.html" class="hover:text-amber-300 transition duration-300">Investing</a>
+                        </li>
+                        <li><a href="budgeting.html" class="hover:text-amber-300 transition duration-300">Budgeting</a>
+                        </li>
                         <li><a href="#" class="hover:text-amber-300 transition duration-300">Market Trends</a></li>
                         <li><a href="#" class="hover:text-amber-300 transition duration-300">Financial Tools</a></li>
                     </ul>
@@ -270,7 +469,7 @@
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
+
                 if (elementPosition < windowHeight - 100) {
                     element.classList.add('animate__animated', 'animate__fadeInUp');
                 }
@@ -284,4 +483,53 @@
         window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
+
+<!-- ads  -->
+<div id="ad-anchor-slot"></div>
+
+<script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert('Right-click is disabled to protect our content.');
+    });
+
+    // Disable keyboard shortcuts
+    document.onkeydown = function (e) {
+        if (
+            (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c' || e.key === 'i' || e.key === 'j')) ||
+            e.key === 'F12' ||
+            (e.metaKey && e.altKey && e.key === 'i')
+        ) {
+            e.preventDefault();
+            alert('Access to developer tools and source code is disabled to protect our content.');
+            return false;
+        }
+        return true;
+    };
+
+    // Disable text selection
+    document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+    });
+
+    // Disable drag and drop
+    document.addEventListener('dragstart', function (e) {
+        e.preventDefault();
+    });
+</script>
+
+<script>
+    window.googletag = window.googletag || { cmd: [] };
+    var anchorSlot;
+    googletag.cmd.push(function () {
+        anchorSlot = googletag.defineOutOfPageSlot('/21952429235/sahajanand_finvault.info_native', googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
+        if (anchorSlot) {
+            anchorSlot.addService(googletag.pubads());
+        }
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+</script>
+
 </html>
